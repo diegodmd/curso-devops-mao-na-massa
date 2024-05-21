@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "control-node"
   config.vm.network "private_network", ip: "192.168.1.2"
   #foi preciso colocar type: rsync, pois nfs não roda no windows.
-  config.vm.synced_folder ".", "/vagrant", type: "rsync" #rsync__exclude: ".git/"
+  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ".vagrant/"
   config.vm.provision "shell", path: "provision.sh"
 
   # comandos que não estão no curso

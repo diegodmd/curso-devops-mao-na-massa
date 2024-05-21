@@ -9,4 +9,4 @@ ExecStart=/usr/bin/java -jar -Djava.awt.headless=true -Djava.security.egd=file:/
 SyslogIdentifier=notes-%i
 
 [Install]
-WantedBy=multi-user-target
+WantedBy=multi-user.target
