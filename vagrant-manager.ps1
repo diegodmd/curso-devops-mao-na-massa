@@ -46,4 +46,7 @@ foreach ($dir in $responses.Keys) {
     }
 }
 
+# Voltar ao diretório raiz
+Set-Location -Path $rootDir
+
 Write-Output "Processo concluído."
