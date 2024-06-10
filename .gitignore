@@ -2,3 +2,5 @@
 repositorio original
 pdf aulas
 vagrant-manager.ps1
+swarm-lab/install-compose.sh
+set-timezone.sh

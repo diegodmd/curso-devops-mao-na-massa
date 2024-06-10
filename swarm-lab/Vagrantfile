@@ -1,0 +1,37 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.provision "shell", inline: "echo config docker swarm cluster"
+    config.vm.define "manager" do |manager|
+        manager.vm.box = "centos/7"
+        manager.vm.hostname = "manager"
+        manager.vm.provision "shell", path: "provision.sh"
+        manager.vm.network "private_network", ip: "192.168.1.2"
+        manager.vm.network "forwarded_port", guest: 80, host: 8090
+        # comandos que não estão no curso
+        config.vbguest.auto_update = false
+        config.vbguest.no_remote = true
+        config.vbguest.installer_options = { allow_kernel_upgrade: true }
+    end
+    config.vm.provision "shell", inline: "echo config docker swarm cluster"
+    config.vm.define "worker1" do |manager|
+        manager.vm.box = "centos/7"
+        manager.vm.hostname = "worker1"
+        manager.vm.provision "shell", path: "provision.sh"
+        manager.vm.network "private_network", ip: "192.168.1.3"
+        # comandos que não estão no curso
+        config.vbguest.auto_update = false
+        config.vbguest.no_remote = true
+        config.vbguest.installer_options = { allow_kernel_upgrade: true }
+    end
+    config.vm.provision "shell", inline: "echo config docker swarm cluster"
+    config.vm.define "worker2" do |manager|
+        manager.vm.box = "centos/7"
+        manager.vm.hostname = "worker2"
+        manager.vm.provision "shell", path: "provision.sh"
+        manager.vm.network "private_network", ip: "192.168.1.4"
+        # comandos que não estão no curso
+        config.vbguest.auto_update = false
+        config.vbguest.no_remote = true
+        config.vbguest.installer_options = { allow_kernel_upgrade: true }
+    end
+end
